@@ -120,7 +120,7 @@ class DistanceFunctionProcessor
       }
       
       double old_dist = distance_values[rec.row_going][rec.col_going];
-      double new_dist = rec.getDist();
+      double new_dist = rec.getDist() + (255 - image.pixels[rec.row_from*width + rec.col_from] >> 16 & 0xFF);
       
       // Popogate if the new distance is withing the boundary size and then if no distance has been calculated for the point yet or the distance is less than the old distance.
       if(new_dist <= DISTANCE_BOUNDARY_LENGTH && (old_dist < 0.0 || new_dist < old_dist))

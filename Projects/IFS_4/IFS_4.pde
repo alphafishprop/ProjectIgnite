@@ -5,8 +5,6 @@
  * Draws Iterated Function Systems using irradiance caching and normalization.
  */
 
-// Uncomment the fractal that you desire to render!
-
 //IFS ifs = new ifs_SispenskiTriangle();
 IFS ifs = new ifs_BarnsleyFern();
 //IFS ifs = new ifs_Babylon();
@@ -101,6 +99,7 @@ void drawIradianceCache()
       
       // Compute the image signal value.
       int val = (int)(norm_val*255);
+      val = val - 255;
   
       int pixel_index = row*width + col;
       screen_image.pixels[pixel_index] = color(255 - val, 255 - val, 255 - val, 255);
@@ -146,9 +145,34 @@ void draw()
   distanceProc.colorUsingDistanceFunction(cache);
   
   // Draw the rendered image to the screen.
-  image(screen_image, 0, 0);
+  //image(screen_image, 0, 0);
   
+  // draw the screen image with a fake 3d approximation.
+  draw3DImageOnScreen(screen_image);
 }
+
+void draw3DImageOnScreen(PImage image)
+{
+     
+  for(int i = 0; i < image_3d_plot.pixels.length; i++)
+  {
+    image_3d_plot.pixels[i] = color(0,0,0,0);
+  }
+  
+  int len = image.pixels.length;
+  for(int i = 0; i < len; i++)
+  {
+    int val = image.pixels[i] >> 16 & 0xFF;
+    
+    image_3d_plot.pixels[i + (max_3d_height - val*max_3d_height/255)*width] = image.pixels[i];  
+  }
+  
+  image_3d_plot.updatePixels();
+  
+  
+  image(image_3d_plot, 0, 0);
+}
+
 
 void keyPressed()
 {
@@ -157,5 +181,6 @@ void keyPressed()
   if (key == ' ')
   {
     screen_image.save("output.png");
+    image_3d_plot.save("output_3d_plot.png");
   }
 }

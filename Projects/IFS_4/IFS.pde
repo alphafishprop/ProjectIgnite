@@ -6,14 +6,12 @@
 
 abstract class IFS
 {
-  
-  // Change this to speed up the convergance of the animation.
+      
   int get_iterations_per_frame()
   {
    return 1000; 
   }
   
-  // Change this to a positive number to have the convergence rate increase over time.
   int get_increase_per_frame()
   {
     return 0;
