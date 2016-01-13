@@ -149,6 +149,7 @@ void draw()
   
   // draw the screen image with a fake 3d approximation.
   draw3DImageOnScreen(screen_image);
+  
 }
 
 void draw3DImageOnScreen(PImage image)
