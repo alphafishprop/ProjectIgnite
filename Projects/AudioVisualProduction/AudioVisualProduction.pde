@@ -9,7 +9,7 @@
  *          This should allow wonderful people to experiment making sketches and enable them to 
  *          perform them together like a real time computer generated movie.
  *
- * Note: The Escape key is used to exit the program.
+ * Note: The Escape key is used to exit the program. You might have to click on the window before it registers though.
  */
 
 Scene[] scenes;
@@ -51,10 +51,11 @@ void draw()
 {
 
   // Changes scenes when the current scene has been running for its duration.
-  if(frameCount >= durations[current_scene_index])
+  // The +1's are there just in case processing does special things when frameCount = 0;
+  if(frameCount >= durations[current_scene_index] + 1)
   {
     current_scene_index++;
-    frameCount = 0;
+    frameCount = 1;
   }
   
   // Terminate the animation once all scenes have been run.
