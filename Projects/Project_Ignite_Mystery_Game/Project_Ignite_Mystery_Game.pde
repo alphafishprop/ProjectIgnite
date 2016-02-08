@@ -47,7 +47,9 @@ void setup() {
 }
 
 void draw() {
-  current_room.draw();
+  //current_room.draw();
+  //for developing shed_room
+  shed_room.draw();
 }
 /*murder weapon - knife - creepo
  advisor dialogue - “will” - advisor
