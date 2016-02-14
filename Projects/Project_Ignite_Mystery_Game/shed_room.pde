@@ -9,6 +9,10 @@ class shed_room extends Room {
   int timer;
 
   private Button test;
+  
+  private final int RO0M_EDGES=0;
+  private final int WAND=1;
+  private boolena wandFound=false;
 
 /*
 room edges:
@@ -64,6 +68,19 @@ int[][][] roomObjects=new int[][][]{roomEdges,magicWand};
   void draw() {
     timer++;
     
+    drawObjects();
+    
+    Boundary mousePosition=new Boundary(mouseX, mouseX,mouseY,mouseY);
+    if(test.intersects(mousePosition)){
+      test.changeColor(color(255,255,255));
+    }
+    else{
+      test.changeColor(color(0,0,0));
+    }
+    test.draw();
+  }
+  
+  void drawObjects(){
     for(int[][] object:roomObjects){
       if(object[0][0]==1){
         for(int[] coors:object){
@@ -75,15 +92,6 @@ int[][][] roomObjects=new int[][][]{roomEdges,magicWand};
         }
       }
     }
-    
-    Boundary mousePosition=new Boundary(mouseX, mouseX,mouseY,mouseY);
-    if(test.intersects(mousePosition)){
-      test.changeColor(color(255,255,255));
-    }
-    else{
-      test.changeColor(color(0,0,0));
-    }
-    test.draw();
   }
   
   void mouseClicked(){
