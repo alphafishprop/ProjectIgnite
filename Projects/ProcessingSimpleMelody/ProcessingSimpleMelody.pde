@@ -17,7 +17,7 @@ int[] divisions = {1,2,4}; //Possible number of melody nodes per chord(quarter, 
 int tonicCount = 0; //How many times a tonic chord has been played with a quarter note melody
 int tonicTotal = 3; //Music stops when we reach this number of tonic chord/quarter note melodies
 
-                        //I   no    ii    no    no    IV    no    V     no    vi    no    viid
+                     //I   no    ii    no    no    IV    no    V     no    vi    no    viid
 float[][] chords = {{0.20, 0.00, 0.10, 0.00, 0.00, 0.30, 0.00, 0.15, 0.00, 0.20, 0.00, 0.05}, //I
                     {0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00}, //no
                     {0.00, 0.00, 0.05, 0.00, 0.00, 0.00, 0.00, 0.90, 0.00, 0.00, 0.00, 0.05}, //ii

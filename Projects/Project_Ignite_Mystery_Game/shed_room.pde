@@ -16,6 +16,8 @@ class shed_room extends Room {
     timer=0;
   }
 
+  
+
   void draw() {
     timer++;
     Boundary mousePosition=new Boundary(mouseX, mouseX,mouseY,mouseY);
