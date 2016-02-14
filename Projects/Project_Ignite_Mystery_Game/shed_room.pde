@@ -32,6 +32,7 @@ new int[]{496,318,423,397};
 */
 
   int[][] roomEdges=new int[]{
+    int int[]{1};
     new int[]{2,798,232,498},
     new int[]{232,498,232,498},
     new int[]{233,498,902,500},
@@ -44,6 +45,7 @@ new int[]{496,318,423,397};
   };
   
   int[][] magicWand=new int[]{
+    new  int[]{1};
     new int[]{419,396,495,316};
     new int[]{496,320,420,397};
     new int[]{420,397,495,324};
@@ -52,7 +54,7 @@ new int[]{496,318,423,397};
     new int[]{496,318,423,397};
   };
 
-
+int[][][] roomObjects=new int[][][]{roomEdges,magicWand};
   void setup() {
     Boundary tempBoundary=new Boundary(100, width/2, 100, height/2);
     test=new Button(tempBoundary, color(0, 0, 0));
@@ -61,6 +63,19 @@ new int[]{496,318,423,397};
 
   void draw() {
     timer++;
+    
+    for(int[][] object:roomObjects){
+      if(object[0][0]==1){
+        for(int[] coors:object){
+          int x1=coors[0];
+          int y1=coors[1];
+          int x2=coors[2];
+          int y2=coors[3];
+          line(x1,y1,x2,y1);
+        }
+      }
+    }
+    
     Boundary mousePosition=new Boundary(mouseX, mouseX,mouseY,mouseY);
     if(test.intersects(mousePosition)){
       test.changeColor(color(255,255,255));
