@@ -2,7 +2,7 @@
 /**
  *@author James Wang
  **/
-//last modified 8 February 2016
+//last modified 14 February 2016
 
 class shed_room extends Room {
   //please put variables here
@@ -31,6 +31,26 @@ new int[]{416,394,496,318};
 new int[]{496,318,423,397};
 */
 
+  int[][] roomEdges=new int[]{
+    new int[]{2,798,232,498},
+    new int[]{232,498,232,498},
+    new int[]{233,498,902,500},
+    new int[]{902,500,1199,796},
+    new int[]{903,500,908,175},
+    new int[]{232,499,232,187},
+    new int[]{232,187,907,180},
+    new int[]{907,180,1199,0},
+    new int[]{233,188,6,2},
+  };
+  
+  int[][] magicWand=new int[]{
+    new int[]{419,396,495,316};
+    new int[]{496,320,420,397};
+    new int[]{420,397,495,324};
+    new int[]{495,324,416,394};
+    new int[]{416,394,496,318};
+    new int[]{496,318,423,397};
+  };
 
 
   void setup() {
