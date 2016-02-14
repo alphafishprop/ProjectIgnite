@@ -51,6 +51,12 @@ void draw() {
   //for developing shed_room
   shed_room.draw();
 }
+
+void mouseClicked(){
+  //current_room.mouseClicked();
+  shed_room.mouseClicked();
+}
+
 /*murder weapon - knife - creepo
  advisor dialogue - “will” - advisor
  shirt - blood on it
@@ -102,6 +108,7 @@ class Player {
 abstract class Room {
   abstract void setup();
   abstract void draw();
+  abstract void mouseClicked();
 
   //@todo implement me, lovely UI programmers. Sincerely, me.
   void displayDialogue(){

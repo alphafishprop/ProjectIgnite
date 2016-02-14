@@ -9,4 +9,7 @@ class outro_room extends Room{
   
   void draw(){
   }
+  
+  void mouseClicked(){
+  }
 }
