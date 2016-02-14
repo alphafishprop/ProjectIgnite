@@ -35,8 +35,8 @@ new int[]{416,394,496,318};
 new int[]{496,318,423,397};
 */
 
-  int[][] roomEdges=new int[]{
-    int int[]{1};
+  int[][] roomEdges=new int[][]{
+    int int[]{1},
     new int[]{2,798,232,498},
     new int[]{232,498,232,498},
     new int[]{233,498,902,500},
@@ -48,14 +48,14 @@ new int[]{496,318,423,397};
     new int[]{233,188,6,2},
   };
   
-  int[][] magicWand=new int[]{
-    new  int[]{1};
-    new int[]{419,396,495,316};
-    new int[]{496,320,420,397};
-    new int[]{420,397,495,324};
-    new int[]{495,324,416,394};
-    new int[]{416,394,496,318};
-    new int[]{496,318,423,397};
+  int[][] magicWand=new int[][]{
+    new  int[]{1},
+    new int[]{419,396,495,316},
+    new int[]{496,320,420,397},
+    new int[]{420,397,495,324},
+    new int[]{495,324,416,394},
+    new int[]{416,394,496,318},
+    new int[]{496,318,423,397},
   };
 
 int[][][] roomObjects=new int[][][]{roomEdges,magicWand};
@@ -77,13 +77,14 @@ int[][][] roomObjects=new int[][][]{roomEdges,magicWand};
     else{
       test.changeColor(color(0,0,0));
     }
-    test.draw();
+    //test.draw();
   }
   
   void drawObjects(){
     for(int[][] object:roomObjects){
       if(object[0][0]==1){
-        for(int[] coors:object){
+        for(int i=1;i<roomObjects.length;i++){
+          int[] coors=object[i];
           int x1=coors[0];
           int y1=coors[1];
           int x2=coors[2];
