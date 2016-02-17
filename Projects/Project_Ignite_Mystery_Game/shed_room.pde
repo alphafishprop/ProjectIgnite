@@ -116,15 +116,16 @@ class shed_room extends Room {
   };
 
   int[][] rug=new int[][]{
-    new int[]{1}, 
+    new int[]{1},                 
     new int[]{51, 799, 218, 564}, 
     new int[]{218, 564, 421, 564}, 
     new int[]{421, 564, 295, 799}, 
     //right frills
-    new int[]{422, 565, 439, 565}, 
-    new int[]{415, 578, 433, 578}, 
+    new int[]{422, 565, 439, 565},//x increments -7, y increments 13
+    new int[]{415, 578, 432, 578},
+    
     //top frills
-    new int[]{218, 563, 228, 551}, 
+    new int[]{218, 563, 228, 551},//x increments 12
     new int[]{230, 563, 240, 551},
     new int[]{242, 563, 252, 551},
     new int[]{254, 563, 264, 551},
