@@ -76,7 +76,7 @@ class shed_room extends Room {
     new int[]{546, 614, 545, 699}, 
     new int[]{566, 516, 564, 599}, 
   };
-  
+
   int[][] powder=new int[][]{
     new int[]{1}, 
     new int[]{504, 523, 504, 523}, 
@@ -106,16 +106,48 @@ class shed_room extends Room {
     new int[]{508, 529, 511, 524}, 
     new int[]{514, 530, 509, 532}, 
   };
-  
+
   int[][] paper=new int[][]{
-    new int[]{1},
+    new int[]{1}, 
     new int[]{496, 538, 525, 537}, 
     new int[]{525, 537, 532, 515}, 
     new int[]{496, 538, 503, 515}, 
     new int[]{502, 515, 532, 516}, 
   };
 
-  int[][][] roomObjects=new int[][][]{roomEdges, magicWand, chair, squashedChair,table,powder,paper};
+  int[][] rug=new int[][]{
+    new int[]{1}, 
+    new int[]{51, 799, 218, 564}, 
+    new int[]{218, 564, 421, 564}, 
+    new int[]{421, 564, 295, 799}, 
+    //right frills
+    new int[]{422, 565, 439, 565}, 
+    new int[]{415, 578, 433, 578}, 
+    //top frills
+    new int[]{218, 563, 228, 551}, 
+    new int[]{230, 563, 240, 551},
+    new int[]{242, 563, 252, 551},
+    new int[]{254, 563, 264, 551},
+    new int[]{266, 563, 276, 551},
+    new int[]{278, 563, 288, 551},
+    new int[]{290, 563, 300, 551},
+    new int[]{302, 563, 312, 551},
+    new int[]{314, 563, 324, 551},
+    new int[]{326, 563, 336, 551},
+    new int[]{340, 563, 350, 551},
+    new int[]{352, 563, 362, 551},
+    new int[]{364, 563, 374, 551},
+    new int[]{376, 563, 386, 551},
+    new int[]{388, 563, 398, 551},
+    new int[]{400, 563, 410, 551},
+    new int[]{412, 563, 422, 551},
+    new int[]{422, 563, 432, 551},
+    //left frills
+    new int[]{218, 564, 203, 564}, 
+    new int[]{211, 572, 196, 572}, 
+  };
+
+  int[][][] roomObjects=new int[][][]{roomEdges, magicWand, chair, squashedChair, table, powder, paper, rug};
   void setup() {
     timer=0;
   }
