@@ -15,7 +15,11 @@ class shed_room extends Room {
   private final int TABLE=4;
   private final int POWDER=5;
   private final int PAPER=6;
-  private boolean wandFound=false;
+  private final int FACE_SMILE=7;
+  
+  private final int FACE_CIRCLES=0;
+  
+  private boolean holdingWand=false;
 
   int[][] roomEdges=new int[][]{
     new int[]{1}, 
@@ -125,46 +129,66 @@ class shed_room extends Room {
     new int[]{415, 578, 433, 578}, 
     //top frills
     new int[]{218, 563, 228, 551}, 
-    new int[]{230, 563, 240, 551},
-    new int[]{242, 563, 252, 551},
-    new int[]{254, 563, 264, 551},
-    new int[]{266, 563, 276, 551},
-    new int[]{278, 563, 288, 551},
-    new int[]{290, 563, 300, 551},
-    new int[]{302, 563, 312, 551},
-    new int[]{314, 563, 324, 551},
-    new int[]{326, 563, 336, 551},
-    new int[]{340, 563, 350, 551},
-    new int[]{352, 563, 362, 551},
-    new int[]{364, 563, 374, 551},
-    new int[]{376, 563, 386, 551},
-    new int[]{388, 563, 398, 551},
-    new int[]{400, 563, 410, 551},
-    new int[]{412, 563, 422, 551},
-    new int[]{422, 563, 432, 551},
+    new int[]{230, 563, 240, 551}, 
+    new int[]{242, 563, 252, 551}, 
+    new int[]{254, 563, 264, 551}, 
+    new int[]{266, 563, 276, 551}, 
+    new int[]{278, 563, 288, 551}, 
+    new int[]{290, 563, 300, 551}, 
+    new int[]{302, 563, 312, 551}, 
+    new int[]{314, 563, 324, 551}, 
+    new int[]{326, 563, 336, 551}, 
+    new int[]{340, 563, 350, 551}, 
+    new int[]{352, 563, 362, 551}, 
+    new int[]{364, 563, 374, 551}, 
+    new int[]{376, 563, 386, 551}, 
+    new int[]{388, 563, 398, 551}, 
+    new int[]{400, 563, 410, 551}, 
+    new int[]{412, 563, 422, 551}, 
+    new int[]{422, 563, 432, 551}, 
     //left frills
     new int[]{218, 564, 203, 564}, 
     new int[]{211, 572, 196, 572}, 
   };
+  
+  int[][] face_smile=new int[][]{
+    new int[]{1}, 
+    new int[]{730, 355, 825, 355}, 
+    new int[]{825, 355, 775, 390}, 
+    new int[]{730, 355, 775, 390}, 
+  };
 
-  int[][][] roomObjects=new int[][][]{roomEdges, magicWand, chair, squashedChair, table, powder, paper, rug};
+  int[][][] room_lines=new int[][][]{roomEdges, magicWand, chair, squashedChair, table, powder, paper, rug, face_smile};
+
+  int[][] face_circles=new int[][]{
+    new int[]{1}, 
+    new int[]{775, 333, 900, 332}, 
+    new int[]{800, 310, 832, 310}, 
+    new int[]{750, 310, 782, 310}, 
+  };
+
+  int[][][] room_circles=new int[][][]{face_circles};
+
   void setup() {
     timer=0;
   }
 
   void draw() {
+    noFill();
+    
     timer++;
 
     background(255);
 
-    drawObjects();
+    drawLines();
+    drawCircles();
   }
 
-  void drawObjects() {
-    for (int[][] object : roomObjects) {
-      if (object[0][0]==1) {
-        for (int i=1; i<object.length; i++) {
-          int[] coors=object[i];
+  void drawLines() {
+    for (int[][] object_lines : room_lines) {
+      if (object_lines[0][0]==1) {
+        for (int i=1; i<object_lines.length; i++) {
+          int[] coors=object_lines[i];
           int x1=coors[0];
           int y1=coors[1];
           int x2=coors[2];
@@ -176,9 +200,29 @@ class shed_room extends Room {
     }
   }
 
+  void drawCircles() {
+    for (int[][] object_circles : room_circles) {
+      if (object_circles[0][0]==1) {
+        for (int i=1; i<object_circles.length; i++) {
+          int[] circle=object_circles[i];
+          int x1=circle[0];
+          int y1=circle[1];
+          int x2=circle[2];
+          int y2=circle[3];
+
+          int dX=x2-x1;
+          int dY=y2-y1;
+          int diameter=(int)Math.sqrt(Math.pow(dX, 2)+Math.pow(dY, 2));
+
+          ellipse(x1, y1, diameter, diameter);
+        }
+      }
+    }
+  }
+
   void mouseClicked() {
-    roomObjects[CHAIR][0][0]=(roomObjects[CHAIR][0][0]+1)%2;
-    roomObjects[SQUASHED_CHAIR][0][0]=(roomObjects[SQUASHED_CHAIR][0][0]+1)%2;
+    room_lines[CHAIR][0][0]=(room_lines[CHAIR][0][0]+1)%2;
+    room_lines[SQUASHED_CHAIR][0][0]=(room_lines[SQUASHED_CHAIR][0][0]+1)%2;
   }
 
 
