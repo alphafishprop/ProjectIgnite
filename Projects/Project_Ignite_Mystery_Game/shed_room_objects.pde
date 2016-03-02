@@ -3,7 +3,7 @@ static class shed_room_objects {
   public static final int SHOWING=1;
   public static final int CONCEALED=2;
   static int[][] roomEdges=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{2, 798, 232, 498}, 
     new int[]{232, 498, 232, 498}, 
     new int[]{233, 498, 902, 500}, 
@@ -16,14 +16,14 @@ static class shed_room_objects {
   };
 
   static int[][] magicWand=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{267, 426, 267, 354}, 
     new int[]{268, 426, 268, 354}, 
     new int[]{269, 426, 269, 354}, 
   };
 
   static int[][] chair=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{251, 528, 252, 448}, 
     new int[]{252, 448, 310, 448}, 
     new int[]{311, 448, 310, 525}, 
@@ -38,7 +38,7 @@ static class shed_room_objects {
   };
 
   static int[][] squashedChair=new int[][]{
-    new int[]{0}, 
+    new int[]{HIDDEN}, 
     new int[]{267, 498, 251, 528}, 
     new int[]{251, 528, 310, 526}, 
     new int[]{310, 526, 329, 497}, 
@@ -52,7 +52,7 @@ static class shed_room_objects {
   };
 
   static int[][] table=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{496, 516, 470, 615}, 
     new int[]{470, 615, 547, 615}, 
     new int[]{547, 615, 567, 516}, 
@@ -63,7 +63,7 @@ static class shed_room_objects {
   };
 
   static int[][] powder=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{504, 523, 504, 523}, 
     new int[]{519, 526, 519, 526}, 
     new int[]{519, 521, 519, 521}, 
@@ -93,7 +93,7 @@ static class shed_room_objects {
   };
 
   static int[][] paper=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{496, 538, 525, 537}, 
     new int[]{525, 537, 532, 515}, 
     new int[]{496, 538, 503, 515}, 
@@ -101,7 +101,7 @@ static class shed_room_objects {
   };
 
   static int[][] rug=new int[][]{
-    new int[]{1}, 
+    new int[]{SHOWING}, 
     new int[]{51, 799, 218, 564}, 
     new int[]{218, 564, 421, 564}, 
     new int[]{421, 564, 295, 799}, 
@@ -152,16 +152,37 @@ static class shed_room_objects {
   };
 
   static int[][] face_smile=new int[][]{
-    new int[]{2}, 
+    new int[]{CONCEALED}, 
     new int[]{730, 355, 825, 355}, 
     new int[]{825, 355, 775, 390}, 
     new int[]{730, 355, 775, 390}, 
   };
 
-  static int[][][] room_lines=new int[][][]{roomEdges, magicWand, chair, squashedChair, table, powder, paper, rug, face_smile};
+  static int[][] eatMe=new int[][]{
+    new int[]{SHOWING},
+    new int[]{492, 543, 486, 563}, 
+    new int[]{487, 562, 503, 562}, 
+    new int[]{489, 554, 497, 554}, 
+    new int[]{493, 543, 504, 543}, 
+    new int[]{506, 561, 515, 544}, 
+    new int[]{515, 544, 523, 560}, 
+    new int[]{511, 552, 520, 552}, 
+    new int[]{530, 545, 547, 545}, 
+    new int[]{538, 545, 533, 560}, 
+    new int[]{486, 567, 480, 587}, 
+    new int[]{487, 568, 490, 584}, 
+    new int[]{490, 584, 501, 569}, 
+    new int[]{501, 569, 501, 586}, 
+    new int[]{526, 585, 506, 585}, 
+    new int[]{506, 585, 509, 566}, 
+    new int[]{510, 566, 523, 566}, 
+    new int[]{508, 574, 518, 574}, 
+  };
+
+  static int[][][] room_lines=new int[][][]{roomEdges, magicWand, chair, squashedChair, table, powder, paper, rug, face_smile, eatMe};
 
   static int[][] face_circles=new int[][]{
-    new int[]{2}, 
+    new int[]{CONCEALED}, 
     new int[]{775, 333, 900, 332}, 
     new int[]{800, 310, 832, 310}, 
     new int[]{750, 310, 782, 310}, 
